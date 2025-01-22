@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';  // Import the hook
 import DevMind from "./devmind.jpeg";
-import { Laptop, Users, Activity, BookOpen } from 'lucide-react';  // Import icons for the modules
+import {Users, Activity, BookOpen } from 'lucide-react';  // Import icons for the modules
 
 const Modules = () => {
   const navigate = useNavigate();  // Initialize the navigate function
 
   // Function to navigate to the selected module's game page
   const handleModuleClick = (moduleName: string) => {
-    navigate(`/about`); // Replace with the actual path to the game or module details page
+    if (moduleName == "collaboration") {
+      navigate(`/emotionrecognition`);
+    }
+     // Replace with the actual path to the game or module details page
   };
 
   // Sample progress data for each module
@@ -50,38 +53,6 @@ const Modules = () => {
         {/* Modules Grid - One module per column */}
         <div className="grid grid-cols-1 gap-6 w-full max-w-3xl">
           {/* Module 1: Programming */}
-          <div
-            onClick={() => handleModuleClick('programming')}
-            className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center hover:shadow-lg transform hover:scale-105 transition cursor-pointer"
-          >
-            <Laptop className="text-[#A97DBC] mb-4" size={48} />
-            <h4 className="text-lg font-semibold text-[#A97DBC]">Programming</h4>
-            <p className="text-sm text-[#A97DBC] mt-2 text-center">
-              Dive into the world of coding and problem-solving.
-            </p>
-
-            {/* Progress Bar */}
-            <div className="w-full mt-4">
-              <p className="text-sm text-[#A97DBC] mb-2">Progress</p>
-              <div className="relative pt-1">
-                <div className="flex mb-2 items-center justify-between">
-                  <div>
-                    <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200">
-                      {progressData.programming}%
-                    </span>
-                  </div>
-                </div>
-                <div className="flex mb-2">
-                  <div className="w-full bg-gray-200 rounded-full">
-                    <div
-                      className="bg-pink-500 text-xs leading-none py-1 text-center text-white rounded-full"
-                      style={{ width: `${progressData.programming}%` }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Module 2: Collaboration */}
           <div
@@ -89,9 +60,9 @@ const Modules = () => {
             className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center hover:shadow-lg transform hover:scale-105 transition cursor-pointer"
           >
             <Users className="text-[#A97DBC] mb-4" size={48} />
-            <h4 className="text-lg font-semibold text-[#A97DBC]">Collaboration</h4>
+            <h4 className="text-lg font-semibold text-[#A97DBC]">Emotion Recognition</h4>
             <p className="text-sm text-[#A97DBC] mt-2 text-center">
-              Learn effective communication and teamwork skills.
+              Learn to effectively recognise and mimic emotions.
             </p>
 
             {/* Progress Bar */}
@@ -123,9 +94,9 @@ const Modules = () => {
             className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center hover:shadow-lg transform hover:scale-105 transition cursor-pointer"
           >
             <Activity className="text-[#A97DBC] mb-4" size={48} />
-            <h4 className="text-lg font-semibold text-[#A97DBC]">Critical Thinking</h4>
+            <h4 className="text-lg font-semibold text-[#A97DBC]">Conversation Comprehension</h4>
             <p className="text-sm text-[#A97DBC] mt-2 text-center">
-              Sharpen your problem-solving and analytical skills.
+              Enhance your comprehension of conversations.
             </p>
 
             {/* Progress Bar */}
@@ -157,9 +128,9 @@ const Modules = () => {
             className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center hover:shadow-lg transform hover:scale-105 transition cursor-pointer"
           >
             <BookOpen className="text-[#A97DBC] mb-4" size={48} />
-            <h4 className="text-lg font-semibold text-[#A97DBC]">Reading & Writing</h4>
+            <h4 className="text-lg font-semibold text-[#A97DBC]">Empathetic Responses</h4>
             <p className="text-sm text-[#A97DBC] mt-2 text-center">
-              Enhance your reading comprehension and writing ability.
+              Practice responding to prompts empathetically.
             </p>
 
             {/* Progress Bar */}
